@@ -1,2 +1,5 @@
 # Android_XposedDataStorage
 android xposed data storage
+
+通过hook系统服务的数据收发方法的hook从而达到hook服务的效果而不被selinux干掉
+实现xpsoed数据读写服务
