@@ -3,6 +3,7 @@ package top.fols.aapp.xp.tstorage.hok;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,9 +12,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import top.fols.aapp.xp.tstorage.hok.util.ServiceReturnBigData;
 import top.fols.box.io.XStream;
 import top.fols.box.io.base.XByteArrayInputStream;
-import top.fols.box.io.os.XFile;
+import top.fols.box.io.os.XFilePermission;
 import top.fols.box.time.XTimeTool;
-import java.io.Serializable;
 
 /**
  * 这些方法是由服务端执行并返回给客户端的
@@ -493,7 +493,7 @@ public class ServiceMethods implements ServiceMethodInterface {
         if (!ins.exists()) {
             result = result & ins.mkdirs();
         }
-        XFile.openFile(ins, false);
+        XFilePermission.openFile(ins, false);
         return result;
     }
 

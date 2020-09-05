@@ -518,7 +518,7 @@ public class XposedDataStorage {
         if (null == subpath) {
             return this.packageDataDirPath;
         } else {
-            String subFile = XFile.getCanonicalPath(subpath);
+            String subFile = XFile.getCanonicalRelativePath(subpath);
             File absFile = new File(this.packageDataDirPath, subFile);
             return absFile.getPath();
         }
@@ -576,7 +576,7 @@ public class XposedDataStorage {
         String[] names = this.list(subFile);
         if (null != names) {
             for (String fn: names) {
-                String p = XFile.getCanonicalPath(subFile, fn);
+                String p = XFile.getCanonicalRelativePath(subFile, fn);
                 if (isFile(p)) {
                     delete(p);
                 } else {

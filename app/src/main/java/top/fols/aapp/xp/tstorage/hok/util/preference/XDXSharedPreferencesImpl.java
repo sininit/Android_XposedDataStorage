@@ -3,7 +3,6 @@ package top.fols.aapp.xp.tstorage.hok.util.preference;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import android.annotation.Nullable;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -98,8 +97,7 @@ public class XDXSharedPreferencesImpl implements SharedPreferences {
 
 
     @Override
-    @Nullable
-    public String getString(String key, @Nullable String defValue) {
+    public String getString(String key, String defValue) {
         synchronized (mLock) {
             String v = (String)this.mMap.get(key);
             return v != null ? v : defValue;
@@ -108,8 +106,7 @@ public class XDXSharedPreferencesImpl implements SharedPreferences {
 
 
     @Override
-    @Nullable
-    public Set<String> getStringSet(String key, @Nullable Set<String> defValues) {
+    public Set<String> getStringSet(String key, Set<String> defValues) {
         synchronized (mLock) {
             Set<String> v = (Set<String>) this.mMap.get(key);
             return v != null ? v : defValues;
@@ -190,7 +187,7 @@ public class XDXSharedPreferencesImpl implements SharedPreferences {
         }
 
         @Override
-        public Editor putString(String key, @Nullable String value) {
+        public Editor putString(String key, String value) {
             synchronized (mLock) {
                 this.mMap.put(key, value);
                 return this;
@@ -198,7 +195,7 @@ public class XDXSharedPreferencesImpl implements SharedPreferences {
         }
 
         @Override
-        public Editor putStringSet(String key, @Nullable Set<String> values) {
+        public Editor putStringSet(String key, Set<String> values) {
             synchronized (mLock) {
                 this.mMap.put(key,
                         (values == null) ? null : new HashSet<String>(values));
